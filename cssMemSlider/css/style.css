@@ -16,15 +16,15 @@ body {
 }
 
 .wrapper {
-    height: 700px;
-    width: 1200px;
+    height: 80vh;
+    width: 90vw;
     position: relative;
-    margin: 100px auto 0;
+    margin: 5vh auto 0;
 
 }
 
 .slider {
-    height: 90%;
+    height: 100%;
 	overflow: hidden;
 	position: relative;
 	width: inherit;
@@ -41,35 +41,30 @@ body {
     border-radius: 15px;
 }
 
-.slide_1 {
-    background-image: url(../images/minon-i-banani.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;}
-.slide_2 {
-    background-image: url(../images/minoni-s-mishkoy-i-gitaroy.jpg);
+.slide_1, .slide_2, .slide_3, .slide_4, .slide_5 {
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center
+}   
+.slide_1{
+    background-image: url(../images/minon-i-banani.jpg);
+}
+.slide_2 {
+    background-image: url(../images/minoni-s-mishkoy-i-gitaroy.jpg);
 }
 .slide_3 {
     background-image: url(../images/dva-obayatelnih-minona.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .slide_4 {
     background-image: url(../images/gornichnaya-minon.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 .slide_5 {
     background-image: url(../images/minoni-sushat-odegdu.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 .wrapper .text {
     position: absolute;
     margin-top: 20px;
-    left: 8%;
     font-family: theminion;
     font-size: 25px;
     color: rgb(212, 219, 9);
@@ -85,11 +80,19 @@ body {
 #slide_4:checked ~ .describtion > .str_4,
 #slide_5:checked ~ .describtion > .str_5 {
     opacity: 1;
+    animation: text 1.5s 1;
+}
+
+@keyframes text {
+    0% {
+        color: rgb(20, 128, 134);
+        transform: translateX(100px);
+        letter-spacing: 30px;
+    }
 }
 
 .wrapper .labels {
-	left: 50%;
-	margin-left: 350px;
+    right: 0;
 	position: absolute;
 }
 
@@ -142,4 +145,17 @@ body {
 	opacity: 1;
 	z-index: 1;
 	transform: scale(1);
+    transition-duration: 2s;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        height: 70vh;
+    }
+    .wrapper .text {
+        margin-top: 60px;
+    }
+    .wrapper .labels {
+        left: 32%;
+    }
 }

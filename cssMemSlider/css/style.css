@@ -38,13 +38,9 @@ body {
 	height: 100%;
     width: auto;
 	position: absolute;
-    border-radius: 15px;
-}
-
-.slide_1, .slide_2, .slide_3, .slide_4, .slide_5 {
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center
+    background-size: contain;
+    background-position: center;
 }   
 .slide_1{
     background-image: url(../images/minon-i-banani.jpg);
@@ -157,5 +153,11 @@ body {
     }
     .wrapper .labels {
         left: 32%;
+    }
+}
+
+@media (max-width: 360px) {
+    .wrapper .labels {
+        left: 20%;
     }
 }

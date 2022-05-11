@@ -31,7 +31,8 @@ body {
 }
 
 .wrapper > input {
-	display: none;
+    appearance: none;
+	/* display: none; */
 }
 
 .img {

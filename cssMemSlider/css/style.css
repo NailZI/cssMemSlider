@@ -1,0 +1,163 @@
+@font-face {
+    font-family: theminion;
+    src: url(../fonts/THE\ MINION.ttf);
+    font-style: normal; 
+    font-weight: normal; 
+}
+
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(20, 128, 134);
+}
+
+.wrapper {
+    height: 80vh;
+    width: 90vw;
+    position: relative;
+    margin: 5vh auto 0;
+
+}
+
+.slider {
+    height: 100%;
+	overflow: hidden;
+	position: relative;
+	width: inherit;
+}
+
+.wrapper > input {
+    appearance: none;
+}
+
+.img {
+	height: 100%;
+    width: auto;
+	position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}   
+.slide_1{
+    background-image: url(../images/minon-i-banani.jpg);
+}
+.slide_2 {
+    background-image: url(../images/minoni-s-mishkoy-i-gitaroy.jpg);
+}
+.slide_3 {
+    background-image: url(../images/dva-obayatelnih-minona.jpg);
+}
+.slide_4 {
+    background-image: url(../images/gornichnaya-minon.jpg);
+}
+.slide_5 {
+    background-image: url(../images/minoni-sushat-odegdu.jpg);
+}
+
+.wrapper .text {
+    position: absolute;
+    margin-top: 20px;
+    font-family: theminion;
+    font-size: 25px;
+    color: rgb(212, 219, 9);
+}
+
+.str_1, .str_2, .str_3, .str_4, .str_5 {
+    opacity: 0;
+}
+
+#slide_1:checked ~ .describtion > .str_1,
+#slide_2:checked ~ .describtion > .str_2,
+#slide_3:checked ~ .describtion > .str_3,
+#slide_4:checked ~ .describtion > .str_4,
+#slide_5:checked ~ .describtion > .str_5 {
+    opacity: 1;
+    animation: text 1.5s 1;
+}
+
+@keyframes text {
+    0% {
+        color: rgb(20, 128, 134);
+        transform: translateX(100px);
+        letter-spacing: 30px;
+    }
+}
+
+.wrapper .labels {
+    right: 0;
+	position: absolute;
+}
+
+.wrapper label {
+	cursor: pointer;
+	display: inline-block;
+	height: 10px;
+	margin: 35px 12px 0 16px;
+	position: relative;
+	width: 10px;
+	border-radius: 50%;
+    transition: background ease-in-out .5s;
+}
+
+.wrapper label:after {
+	border: 2px solid rgb(212, 219, 9);
+	content: " ";
+	display: block;
+	height: 14px;
+	left: -4px;
+	position: absolute;
+	top: -4px;
+	width: 14px;
+	border-radius: 50%;
+}
+
+.wrapper label:hover, 
+#slide_1:checked ~ .labels label:nth-of-type(1),
+#slide_2:checked ~ .labels label:nth-of-type(2),
+#slide_3:checked ~ .labels label:nth-of-type(3),
+#slide_4:checked ~ .labels label:nth-of-type(4),
+#slide_5:checked ~ .labels label:nth-of-type(5) {
+	background: rgb(212, 219, 9);
+}
+
+.img {
+	opacity: 0;
+	position: absolute;
+	width: inherit;
+	z-index: 0;
+	transform: scale(1);
+	transition: transform ease-in-out .5s, opacity ease-in-out .5s;
+}
+
+#slide_1:checked ~ .slider > .slide_1,
+#slide_2:checked ~ .slider > .slide_2,
+#slide_3:checked ~ .slider > .slide_3,
+#slide_4:checked ~ .slider > .slide_4,
+#slide_5:checked ~ .slider > .slide_5 {
+	opacity: 1;
+	z-index: 1;
+	transform: scale(1);
+    transition-duration: 2s;
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        height: 70vh;
+    }
+    .wrapper .text {
+        margin-top: 60px;
+    }
+    .wrapper .labels {
+        left: 32%;
+    }
+}
+
+@media (max-width: 360px) {
+    .wrapper .labels {
+        left: 20%;
+    }
+}
